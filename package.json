@@ -1,0 +1,14 @@
+{
+  "name": "kozykolors",
+  "version": "1.0.0",
+  "description": "Kozy kolor palettes!",
+  "main": "kozy_kolors.js",
+  "scripts": {
+    "dev": "uglifyjs ./src/kozy-kolors.js --compress -o ./src/kozy-kolors.min.js"
+  },
+  "author": "Lolou's Studio",
+  "license": "ISC",
+  "dependencies": {
+    "uglify-js": "^3.17.4"
+  }
+}
