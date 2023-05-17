@@ -1,4 +1,5 @@
 # Kozy Kolors
+Kozy design system is designed to make you feel like home. Kozy is highly inspired by nature and animals. Our dynamic color palette library makes it even better and cooler 😎!
 This project is made by Liam Cheneval (Lolou's Studio), enjoy!
 
 ## Welcome Home!
