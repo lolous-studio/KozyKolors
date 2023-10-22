@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My Kozy Korner</title>
+    </head>
+    <body style="background-color:var(--raw-v10);">
+        <h1 style="color:var(--raw-v100); font-family: sans-serif;">Welcome home!</h1>
+        <img class="color-from" src="https://images.unsplash.com/photo-1682407186023-12c70a4a35e0" alt="" crossorigin="anonymous" width="500px">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+        <script type="module">
+            import { Palette } from "https://cdn.jsdelivr.net/gh/lolous-studio/KozyKolors@0.1.0/src/kozy-kolors.min.js";
+            const colorThief = new ColorThief();
+            const img = document.querySelector('.color-from');
+            const rgbToHex = (r, g, b) => "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+            // Make sure image is finished loading
+            if (img.complete) {
+                thief(img);
+            } else {
+              img.addEventListener('load', function() {
+                thief(img);
+              });
+            }
+            function thief(img){
+                var palette = colorThief.getPalette(img);
+                console.log(palette);
+                let hex = rgbToHex(palette[0][0], palette[0][1], palette[0][2]);
+                updatepalette(hex);
+            }
+
+            function updatepalette(color){
+                let palette = new Palette(color);
+
+                document.documentElement.style.setProperty('--raw-v100', `hsl(${palette.raw.v100[0]}, ${palette.raw.v100[1]}%, ${palette.raw.v100[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v90', `hsl(${palette.raw.v90[0]}, ${palette.raw.v90[1]}%, ${palette.raw.v90[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v80', `hsl(${palette.raw.v80[0]}, ${palette.raw.v80[1]}%, ${palette.raw.v80[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v70', `hsl(${palette.raw.v70[0]}, ${palette.raw.v70[1]}%, ${palette.raw.v70[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v60', `hsl(${palette.raw.v60[0]}, ${palette.raw.v60[1]}%, ${palette.raw.v60[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v50', `hsl(${palette.raw.v50[0]}, ${palette.raw.v50[1]}%, ${palette.raw.v50[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v40', `hsl(${palette.raw.v40[0]}, ${palette.raw.v40[1]}%, ${palette.raw.v40[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v30', `hsl(${palette.raw.v30[0]}, ${palette.raw.v30[1]}%, ${palette.raw.v30[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v20', `hsl(${palette.raw.v20[0]}, ${palette.raw.v20[1]}%, ${palette.raw.v20[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v10', `hsl(${palette.raw.v10[0]}, ${palette.raw.v10[1]}%, ${palette.raw.v10[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v5', `hsl(${palette.raw.v5[0]}, ${palette.raw.v5[1]}%, ${palette.raw.v5[2]}%)`);
+                document.documentElement.style.setProperty('--raw-v1', `hsl(${palette.raw.v1[0]}, ${palette.raw.v1[1]}%, ${palette.raw.v1[2]}%)`);
+            }
+        </script>
+    </body>
+</html>
